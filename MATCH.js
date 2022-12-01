@@ -1,5 +1,5 @@
 const UNICODE = require("./STRING_TO_UNICODE.js");
-const SUM = require("./SUM.js");
+const Sum = require("./SUM.js");
 
 module.exports = function (str1, str2) {
 	if (str1.length === 0) {
