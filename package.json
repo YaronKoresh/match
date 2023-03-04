@@ -1,5 +1,5 @@
 {
-  "name": "MATCH.js",
+  "name": "@yaronkoresh/match",
   "main": "./MATCH.js",
   "version": "1.0.0",
   "description": "Algorithm measuring percentages of correspondence between texts",
