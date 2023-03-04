@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "Algorithm measuring percentages of correspondence between texts",
   "author": "Yaron Koresh <aharonkoresh1@gmail.com>",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
   "license": {
     "type": "MIT",
     "url": "https://github.com/YaronKoresh/MATCH.js/raw/master/LICENSE"
