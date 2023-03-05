@@ -2,6 +2,8 @@ const Unicode = require("./STRING_TO_UNICODE.js");
 const Sum = require("./SUM.js");
 
 module.exports = function (str1, str2) {
+	str1 = str1.toString().replaceAll(/([\n\t\s]){2,}/g," ").trim();
+	str2 = str2.toString().replaceAll(/([\n\t\s]){2,}/g," ").trim();
 	if (str1.length === 0) {
 		return 0
 	} else if (str2.length === 0) {
@@ -52,5 +54,5 @@ module.exports = function (str1, str2) {
 		}
 		multi = 0;
 	}
-	return ( Sum(match) / match.length * 0.25 ) + ( multi_highest * 100 / max * 0.75)
+	return ( Sum(match) / match.length * 0.5 ) + ( multi_highest * 100 / max * 0.5)
 }
