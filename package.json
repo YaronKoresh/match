@@ -1,7 +1,7 @@
 {
   "name": "@yaronkoresh/match",
   "main": "./MATCH.js",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Algorithm measuring percentages of correspondence between texts",
   "author": "Yaron Koresh <aharonkoresh1@gmail.com>",
   "scripts": {
