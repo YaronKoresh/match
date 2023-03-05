@@ -1,4 +1,4 @@
-const UNICODE = require("./STRING_TO_UNICODE.js");
+const Unicode = require("./STRING_TO_UNICODE.js");
 const Sum = require("./SUM.js");
 
 module.exports = function (str1, str2) {
@@ -21,8 +21,8 @@ module.exports = function (str1, str2) {
 		str.push(str2);
 		str.push(str1)
 	}
-	str1 = UNICODE(str[0]);
-	str2 = UNICODE(str[1]);
+	str1 = Unicode(str[0]);
+	str2 = Unicode(str[1]);
 	if( typeof str1 != "object" ){
 		str1 = [str1];
 	}
