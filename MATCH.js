@@ -7,6 +7,8 @@ module.exports = function (str1, str2) {
 	} else if (str2.length === 0) {
 		return 0
 	}
+	str1 = str1.replaceAll(/([\t\s\n]){2,}/g," ").trim();
+	str2 = str2.replaceAll(/([\t\s\n]){2,}/g," ").trim();
 	var max = Math.max(str1.length, str2.length);
 	var min = Math.min(str1.length, str2.length);
 	var rm = max - min;
@@ -33,9 +35,9 @@ module.exports = function (str1, str2) {
 	var multi = 0;
 	var multi_highest = 0;
 	var alwaysPerfect = [
-		" ",
-		"	",
-		"\n"
+		10,
+		9,
+		32
 	];
 	for (var i = 0; i <= rm; i++) {
 		for (var j = 0; j < min; j++) {
@@ -44,7 +46,7 @@ module.exports = function (str1, str2) {
 			var long = str1[i + j];
 			var score = 0;
 
-			if( alwaysPerfect.includes(str[0]) || alwaysPerfect.includes(str[1]) ){
+			if( alwaysPerfect.includes(short) || alwaysPerfect.includes(long) ){
 				score = 100
 			} else {
 				var n = Math.min(short, long);
