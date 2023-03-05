@@ -1,4 +1,4 @@
-const Unicode = require("./STRING_TO_UNICODE.js");
+const UNICODE = require("./STRING_TO_UNICODE.js");
 const Sum = require("./SUM.js");
 
 module.exports = function (str1, str2) {
@@ -21,8 +21,8 @@ module.exports = function (str1, str2) {
 		str.push(str2);
 		str.push(str1)
 	}
-	str1 = Unicode(str[0]);
-	str2 = Unicode(str[1]);
+	str1 = UNICODE(str[0]);
+	str2 = UNICODE(str[1]);
 	if( typeof str1 != "object" ){
 		str1 = [str1];
 	}
@@ -30,6 +30,8 @@ module.exports = function (str1, str2) {
 		str2 = [str2];
 	}
 	var match = [];
+	var multi = 0;
+	var multi_highest = 0;
 	for (var i = 0; i <= rm; i++) {
 		for (var j = 0; j < min; j++) {
 			var short = str2[j];
@@ -37,19 +39,17 @@ module.exports = function (str1, str2) {
 			var n = Math.min(short, long);
 			var x = Math.max(short, long);
 			var score = 1 / (x / n) * 100;
-			match.push(score)
+
+			match.push(score);
+
+			if (score == 100) {
+				multi++;
+				multi_highest = Math.max(multi_highest, multi);
+			} else {
+				multi = 0;
+			}
 		}
-	}
-	var multi = 0;
-	var multi_highest = 0;
-	for (var i = 0; i < match.length; i++) {
-		var current = match[i];
-		if (current == 100) {
-			multi++;
-			multi_highest = Math.max(multi_highest, multi)
-		} else {
-			multi = 0
-		}
+		multi = 0;
 	}
 	return (Sum(match) / match.length + multi_highest * 100 / min) / 2
 }
