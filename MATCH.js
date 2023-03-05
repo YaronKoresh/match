@@ -32,13 +32,25 @@ module.exports = function (str1, str2) {
 	var match = [];
 	var multi = 0;
 	var multi_highest = 0;
+	var alwaysPerfect = [
+		" ",
+		"	",
+		"\n"
+	];
 	for (var i = 0; i <= rm; i++) {
 		for (var j = 0; j < min; j++) {
+
 			var short = str2[j];
 			var long = str1[i + j];
-			var n = Math.min(short, long);
-			var x = Math.max(short, long);
-			var score = 1 / (x / n) * 100;
+			var score = 0;
+
+			if( alwaysPerfect.includes(str[0]) || alwaysPerfect.includes(str[1]) ){
+				score = 100
+			} else {
+				var n = Math.min(short, long);
+				var x = Math.max(short, long);
+				score = 1 / (x / n) * 100;
+			}
 
 			match.push(score);
 
@@ -51,5 +63,5 @@ module.exports = function (str1, str2) {
 		}
 		multi = 0;
 	}
-	return (Sum(match) / match.length + multi_highest * 100 / min) / 2
+	return ( Sum(match) / match.length * 0.1 ) + ( multi_highest * 100 / min * 0.9)
 }
