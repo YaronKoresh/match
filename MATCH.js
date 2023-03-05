@@ -23,6 +23,12 @@ module.exports = function (str1, str2) {
 	}
 	str1 = UNICODE(str[0]);
 	str2 = UNICODE(str[1]);
+	if( typeof str1 != "object" ){
+		str1 = [str1];
+	}
+	if( typeof str2 != "object" ){
+		str2 = [str2];
+	}
 	var match = [];
 	for (var i = 0; i <= rm; i++) {
 		for (var j = 0; j < min; j++) {
