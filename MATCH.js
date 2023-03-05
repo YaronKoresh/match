@@ -1,7 +1,17 @@
 const Unicode = require("./STRING_TO_UNICODE.js");
 const Sum = require("./SUM.js");
 
-module.exports = function (str1, str2) {
+module.exports = function (str1, str2, continuity = 50, unicode = 50) {
+	if ( unicode + continuity == 1 ){
+		unicode *= 100;
+		continuity *= 100;
+	} else if ( unicode + continuity == 10 ){
+		unicode *= 10;
+		continuity *= 10;
+	} else if( unicode + continuity != 100 ){
+		console.log("unicode + continuity must be equal to 100%");
+		return null;
+	}
 	str1 = str1.toString().replaceAll(/([\n\t\s]){2,}/g," ").trim();
 	str2 = str2.toString().replaceAll(/([\n\t\s]){2,}/g," ").trim();
 	if (str1.length === 0) {
@@ -54,5 +64,5 @@ module.exports = function (str1, str2) {
 		}
 		multi = 0;
 	}
-	return ( Sum(match) / match.length * 0.5 ) + ( multi_highest * 100 / max * 0.5)
+	return ( Sum(match) / match.length * (unicode / 100) ) + ( multi_highest * 100 / max * (continuity / 100))
 }
