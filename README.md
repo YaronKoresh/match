@@ -1,28 +1,39 @@
-# NPM package: @yaronkoresh/match
+# Package & version:
 
-### Algorithm measuring percentages of correspondence between texts:
+### Match v4.0.0
 
-* 50% default score for highest continuity of perfect match.
-* 50% default score for Unicode closeness ("b" is closer to "c" than "7").
+# Description:
 
-### Start/end spaces are ignored & duplicate spaces are merged, before any calculation!
+### Algorithm measuring percentages of correspondence between texts.
 
 # Example:
 
 ```
+import { Match } from "@yaronkoresh/match";
+// or: const { Match } = await import("@yaronkoresh/match");
 
-var Match = require("@yaronkoresh/match");
+// Step 1: Choose the first string!
+const str1 = "meow";
 
-console.log( Match.using("gree", "my apple is very green so i will keep it", 100, 0) );
-// continuity (%): 100%.
-// unicode (%): 0%.
-// return: 10 (10% out of 100%).
+// Step 2: Choose the second string!
+const str2 = "lol";
 
-console.log( Match.using("gree", "my apple is very green so i will keep it") );
-// continuity (%): 50%.
-// unicode (%): 50%.
-// return: 44.539704552980574 (~44.5% out of 100%).
+// Step 3: Choose the weight for the "continuity" (exact match of characters, one after another) factor! [default is 50 out of 100]
+const continuity = 33;
 
+// Step 4: Choose the weight for the "unicode" (distance of characters inside one from the other, e.g. "b" is closer to "W" than any japanese characters) factor! [default is 50 out of 100]
+const unicode = 67;
+
+// Step 5: Now let's calculate!
+const match = Match( str1, str2, continuity, unicode );
+
+// The results: 70 (70% of correspondence between the inputs).
+console.log(match);
+
+// Unicode gave high score of 94% (67% of the 94%) because of the same english language of the inputs.
+// Continuity found just a one exact match ("o" character) so it gave a low score of 25% (33% of the 25%).
 ```
 
-### Enjoy!
+# License:
+
+### This project is licensed under MIT open-source license.

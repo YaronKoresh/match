@@ -1,11 +1,12 @@
 {
   "name": "@yaronkoresh/match",
-  "main": "./node.js",
-  "version": "3.0.0",
-  "description": "Algorithm measuring percentages of correspondence between texts",
+  "type": "module",
+  "main": "./index.mjs",
+  "version": "4.0.0",
+  "description": "Algorithm measuring percentages of correspondence between texts.",
   "author": "Yaron Koresh <aharonkoresh1@gmail.com>",
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "exit 1"
   },
   "license": {
     "type": "MIT",
@@ -15,5 +16,17 @@
     "type": "git",
     "url": "https://github.com/YaronKoresh/MATCH.js.git"
   },
-  "dependencies": { }
+ "bugs": {
+    "url": "https://github.com/YaronKoresh/MATCH.js/issues"
+  },
+ "keywords": [
+    "match",
+    "percentage",
+    "correspondence",
+    "algorithm",
+    "unicode"
+  ],
+  "dependencies": {
+    "@yaronkoresh/math": "^2.0.0"
+  }
 }
