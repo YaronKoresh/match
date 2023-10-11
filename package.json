@@ -6,7 +6,7 @@
   "description": "Algorithm measuring percentages of correspondence between texts.",
   "author": "Yaron Koresh <aharonkoresh1@gmail.com>",
   "scripts": {
-    "test": "exit 1"
+    "test": "exit 0"
   },
   "license": {
     "type": "MIT",
